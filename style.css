@@ -17,36 +17,36 @@ span {
   ); /* Set the background color with transparency */
 }
 .myBody {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
-    url(images/DSC_5544.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(images/background_img.jpg);
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:100% 100%;
 }
 .sloganText {
-  color: #D2D2D2;
+  color: #d2d2d2;
   text-align: center;
-  font-family: 'Italiana', serif;
+  font-family: "Italiana", serif;
 }
 .sloganDiv {
-padding-top: 90%;
-padding-bottom: 25%;
+  padding-top: 90%;
+  padding-bottom: 25%;
 }
 .redButton {
-  background-color: #9C1D29;
-  color: #D2D2D2;
+  background-color: #9c1d29;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 14px;
 }
-#exploreBtnDiv{
+#exploreBtnDiv {
   padding-bottom: 70%;
 }
-.montaseratteFont{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+.textstyle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #d2d2d2;
 }
