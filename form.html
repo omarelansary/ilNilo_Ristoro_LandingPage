@@ -1,0 +1,1060 @@
+<script
+  src="https://cdn02.jotfor.ms/static/prototype.forms.js?3.3.41870"
+  type="text/javascript"
+></script>
+<script
+  src="https://cdn03.jotfor.ms/static/jotform.forms.js?3.3.41870"
+  type="text/javascript"
+></script>
+<script
+  defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"
+></script>
+<script
+  src="https://cdn01.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.41870"
+  type="text/javascript"
+></script>
+<script
+  defer
+  src="https://cdn02.jotfor.ms/js/vendor/maskedinput.min.js?v=3.3.41870"
+  type="text/javascript"
+></script>
+<script
+  defer
+  src="https://cdn03.jotfor.ms/js/vendor/jquery.maskedinput.min.js?v=3.3.41870"
+  type="text/javascript"
+></script>
+<script
+  src="https://cdn01.jotfor.ms/js/payments/validategateways.js?v=3.3.41870"
+  type="text/javascript"
+></script>
+<script
+  src="https://cdn01.jotfor.ms/s/umd/9f9d9b8e189/for-appointment-field.js?v=3.3.41870"
+  type="text/javascript"
+></script>
+<script type="text/javascript">
+  JotForm.newDefaultTheme = false;
+  JotForm.extendsNewTheme = true;
+  JotForm.singleProduct = false;
+  JotForm.newPaymentUIForNewCreatedForms = true;
+  JotForm.newPaymentUI = true;
+  JotForm.clearFieldOnHide = "disable";
+  JotForm.submitError = "jumpToFirstError";
+
+  JotForm.init(function () {
+    /*INIT-START*/
+    setTimeout(function () {
+      $("input_3").hint("example@example.com");
+    }, 20);
+    JotForm.setPhoneMaskingValidator(
+      "input_11_full",
+      "\u0023\u0023\u0023\u0023\u0023\u0023\u0023\u0023\u0023\u0023\u0023"
+    );
+
+    JotForm.calendarMonths = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    JotForm.appointmentCalendarDays = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    JotForm.calendarOther = "Today";
+    window.initializeAppointment({
+      text: { text: "Question", value: "Appointment" },
+      labelAlign: {
+        text: "Label Align",
+        value: "Top",
+        dropdown: [
+          ["Auto", "Auto"],
+          ["Left", "Left"],
+          ["Right", "Right"],
+          ["Top", "Top"],
+        ],
+      },
+      required: {
+        text: "Required",
+        value: "No",
+        dropdown: [
+          ["No", "No"],
+          ["Yes", "Yes"],
+        ],
+      },
+      description: { text: "Hover Text", value: "", textarea: true },
+      slotDuration: {
+        text: "Slot Duration",
+        value: "15",
+        dropdown: [
+          [15, "15 min"],
+          [30, "30 min"],
+          [45, "45 min"],
+          [60, "60 min"],
+          ["custom", "Custom min"],
+        ],
+        hint: "Select how long each slot will be.",
+      },
+      startDate: { text: "Start Date", value: "" },
+      endDate: { text: "End Date", value: "" },
+      intervals: {
+        text: "Intervals",
+        value: [
+          {
+            from: "11:00",
+            to: "17:00",
+            days: ["Mon", "Tue", "Wed", "Sat", "Sun"],
+          },
+        ],
+        hint: "The hours will be applied to the selected days and repeated.",
+      },
+      useBlockout: {
+        text: "Blockout Custom Dates",
+        value: "No",
+        dropdown: [
+          ["No", "No"],
+          ["Yes", "Yes"],
+        ],
+        hint: "Disable certain date(s) in the calendar.",
+      },
+      blockoutDates: {
+        text: "Blockout dates",
+        value: [{ startDate: "", endDate: "" }],
+      },
+      useLunchBreak: {
+        text: "Lunch Time",
+        value: "No",
+        dropdown: [
+          ["No", "No"],
+          ["Yes", "Yes"],
+        ],
+        hint: "Enable lunchtime in the calendar.",
+      },
+      lunchBreak: {
+        text: "Lunchtime hours",
+        value: [{ from: "12:00", to: "14:00" }],
+      },
+      timezone: { text: "Timezone", value: "Africa/Cairo (GMT+02:00)" },
+      timeFormat: {
+        text: "Time Format",
+        value: "AM/PM",
+        dropdown: [
+          ["24 Hour", "24 Hour"],
+          ["AM/PM", "AM/PM"],
+        ],
+        icon: "images/blank.gif",
+        iconClassName: "toolbar-time_format_24",
+      },
+      months: {
+        value: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ],
+        hidden: true,
+      },
+      days: {
+        value: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        hidden: true,
+      },
+      startWeekOn: {
+        text: "Start Week On",
+        value: "Sunday",
+        dropdown: [
+          ["Monday", "Monday"],
+          ["Sunday", "Sunday"],
+        ],
+        toolbar: false,
+      },
+      rollingDays: { text: "Rolling Days", value: "", toolbar: false },
+      prevMonthButtonText: { text: "Previous month", value: "" },
+      nextMonthButtonText: { text: "Next month", value: "" },
+      prevYearButtonText: { text: "Previous year", value: "" },
+      nextYearButtonText: { text: "Next year", value: "" },
+      prevDayButtonText: { text: "Previous day", value: "" },
+      nextDayButtonText: { text: "Next day", value: "" },
+      appointmentType: { hidden: true, value: "single" },
+      autoDetectTimezone: { hidden: true, value: "Yes" },
+      dateFormat: { hidden: true, value: "dd/mm/yyyy" },
+      maxAttendee: { hidden: true, value: "5" },
+      maxEvents: { hidden: true, value: "" },
+      minScheduleNotice: { hidden: true, value: "0" },
+      name: { hidden: true, value: "appointment" },
+      order: { hidden: true, value: "5" },
+      qid: { toolbar: false, value: "input_10" },
+      reminderEmails: {
+        hidden: true,
+        value: {
+          schedule: [{ value: "2", unit: "hour" }],
+          emailSettings: {
+            PDFPassword: "",
+            attachPDF: "false",
+            updateEmail: "true",
+            type: "APPOINTMENT_REMINDER",
+            to: [
+              {
+                id: "3",
+                value: "{email}",
+                name: "Email",
+                text: "Email",
+                isValid: "true",
+                isQuestion: "true",
+              },
+            ],
+            subject: "Reminder: Your appointment is on {appointment}",
+            content:
+              '<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ecedf2">\n<tbody>\n<tr>\n<td style="width: 32px; min-width: 32px;" width="32">&nbsp;</td>\n<td>\n<table class="jmTable-wrapper" style="width: 100%;" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="min-height: 36px;" height="36">&nbsp;</td>\n</tr>\n<tr>\n<td align="center"><img src="https://www.jotform.com/uploads/omaressamee12/form_files/BlackLogo.63f26aae3b08f6.50532748.png" alt="" width="36" height="49" /><br /><br />\n<table id="jmOutcome-container" class="jmTable" style="min-width: 480px; max-width: 720px; width: 100%; background-color: transparent;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="width: 100%; max-width: 100%; min-width: 100%;">\n<table width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr style="min-height: 26px; background-color: #fff;">\n<td colspan="3">&nbsp;</td>\n</tr>\n<tr style="background-color: #fff;">\n<td style="min-width: 40px;" width="40">&nbsp;</td>\n<td id="jmButton-container">\n<table class="jmTable" style="min-width: 480px; max-width: 720px; width: 100%; background-color: #fff; font-weight: 300;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="width: 100%; max-width: 100%; min-width: 100%;">\n<table width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td>\n<table class="jmTable" style="min-width: 480px; max-width: 720px; width: 100%; background-color: #fff; text-align: left; color: #0a1551; font-size: 18px; font-weight: bold; line-height: 28px;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="width: 100%; max-width: 100%; min-width: 100%;">Here is a friendly reminder email of your appointment in Make Your Own Pizza in il Nilo</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr>\n<td height="18">&nbsp;</td>\n</tr>\n<tr>\n<td>\n<table class="jmTable" style="min-width: 100%; max-width: 100%; width: 100%; background-color: rgba(233, 236, 249, 0.4); text-align: center; border-radius: 4px; overflow: hidden;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="width: 100%; max-width: 100%; min-width: 100%;"><center>\n<table style="width: auto; max-width: 100%; padding: 15px 0;" cellspacing="0" cellpadding="0">\n<tbody>\n<tr style="vertical-align: text-top;">\n<td><img style="margin-right: 5px;" src="https://emails.jotform.com/img/appointment/date.png?v=1.0" alt="appointment icon" width="14" /></td>\n<td>\n<table>\n<tbody>\n<tr>\n<td><span style="color: #a5a8b3; font-size: 12px; font-weight: 400; line-height: 20px;">Appointment</span></td>\n</tr>\n<tr>\n<td><span style="color: #2b3245; font-size: 14px; font-weight: 400; line-height: 20px;">{appointment:date}</span></td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr style="vertical-align: text-top;">\n<td><img style="margin-right: 5px;" src="https://emails.jotform.com/img/appointment/duration.png?v=1.0" alt="appointment icon" width="14" /></td>\n<td>\n<table>\n<tbody>\n<tr>\n<td><span style="color: #a5a8b3; font-size: 12px; font-weight: 400; line-height: 20px;">Duration</span></td>\n</tr>\n<tr>\n<td><span style="color: #2b3245; font-size: 14px; font-weight: 400; line-height: 20px;">{appointment:duration}</span></td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr style="vertical-align: text-top;">\n<td><img style="margin-right: 5px;" src="https://emails.jotform.com/img/appointment/timezone.png?v=1.0" alt="appointment icon" width="14" /></td>\n<td>\n<table>\n<tbody>\n<tr>\n<td><span style="color: #a5a8b3; font-size: 12px; font-weight: 400; line-height: 20px;">Timezone</span></td>\n</tr>\n<tr>\n<td><span style="color: #2b3245; font-size: 14px; font-weight: 400; line-height: 20px;">{appointment:timezone}</span></td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</center></td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr>\n<td height="18">&nbsp;</td>\n</tr>\n<tr>\n<td>\n<table class="jmTable" style="min-width: 480px; max-width: 720px; width: 100%; background-color: #fff; text-align: center; font-size: 14px; line-height: 16px;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="width: 100%; max-width: 100%; min-width: 100%;">Add to&nbsp; <a href="{googleCalendarLink:appointment}">Google</a> &nbsp;&bull;&nbsp; <a href="{outlookLink:appointment}">Outlook</a> &nbsp;&bull;&nbsp; <a href="{icalLink:appointment}">iCal</a></td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr>\n<td height="18">&nbsp;</td>\n</tr>\n<tr>\n<td>\n<table class="jmTable" style="min-width: 480px; max-width: 720px; width: 100%; background-color: #fff; text-align: center;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="width: 100%; max-width: 100%; min-width: 100%;"><a style="min-width: 64px; background-color: #ff6100; color: #fff; border-radius: 4px; font-size: 20px; font-weight: bold; line-height: 23px; text-align: center; padding: 16px 26px; display: inline-block; text-decoration: none; margin-top: 8px;" href="{edit_link_v2}">&nbsp;Reschedule or Cancel Appointment&nbsp;</a></td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</td>\n<td style="min-width: 40px;" width="40">&nbsp;</td>\n</tr>\n<tr style="min-height: 26px; background-color: #fff;">\n<td colspan="3">&nbsp;</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n<br />\n<table class="jmTable-wrapper" style="width: 100%;" cellspacing="0" cellpadding="0">\n<tbody>\n<tr style="display: none;">\n<td style="min-height: 64px;" height="64">&nbsp;</td>\n</tr>\n<tr>\n<td align="center">\n<table style="max-width: 720px;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="line-height: 0; font-size: 0; border-radius: 4px 4px 0 0;" bgcolor="#FF6100" height="8">&nbsp;</td>\n</tr>\n</tbody>\n</table>\n<table class="jmTable" style="min-width: 480px; max-width: 720px; width: 100%; background-color: #fff;" width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr>\n<td style="width: 100%; max-width: 100%; min-width: 100%;">\n<table width="100%" cellspacing="0" cellpadding="0">\n<tbody>\n<tr style="min-height: 24px;">\n<td colspan="3">&nbsp;</td>\n</tr>\n<tr>\n<td style="min-width: 40px;" width="40">&nbsp;</td>\n<td><span id="jmTitle-container" style="font-size: 18px; font-weight: bold; color: #0a1551;">{form_title}</span></td>\n<td style="min-width: 40px;" width="40">&nbsp;</td>\n</tr>\n<tr style="min-height: 16px;">\n<td style="min-width: 40px;" width="40">&nbsp;</td>\n<td style="border-bottom: 1px solid #ECEDF2;">&nbsp;</td>\n<td style="min-width: 40px;" width="40">&nbsp;</td>\n</tr>\n<tr>\n<td colspan="3">\n<table id="jmSubmission-container" class="jmSubmissionTable" style="width: 100%;" cellspacing="0" cellpadding="24">\n<tbody id="emailFieldsTableBody">\n<tr>\n<td>\n<table id="jmSubmission-container" class="emailFieldsInnerTable" width="100%" cellspacing="0" cellpadding="12">\n<tbody id="emailFieldsTableInnerBody">\n<tr id="row_5" class="questionRow">\n<td id="question_5" class="questionColumn" style="color: #6f76a7; font-size: 14px;" bgcolor="transparent" width="40%">Name</td>\n<td id="value_5" class="valueColumn" style="color: #0a1551; font-size: 14px;" bgcolor="transparent" width="60%">{name}</td>\n</tr>\n<tr id="row_3" class="questionRow">\n<td id="question_3" class="questionColumn" style="color: #6f76a7; font-size: 14px;" bgcolor="transparent" width="40%">Email</td>\n<td id="value_3" class="valueColumn" style="color: #0a1551; font-size: 14px;" bgcolor="transparent" width="60%">{email}</td>\n</tr>\n<tr id="row_10" class="questionRow">\n<td id="question_10" class="questionColumn" style="color: #6f76a7; font-size: 14px;" bgcolor="transparent" width="40%">Appointment</td>\n<td id="value_10" class="valueColumn" style="color: #0a1551; font-size: 14px;" bgcolor="transparent" width="60%">{appointment}</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr>\n<td style="min-height: 64px;" height="64">&nbsp;</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr>\n<td style="min-height: 116px;" height="116">&nbsp;</td>\n</tr>\n</tbody>\n</table>\n</td>\n<td style="width: 32px; min-width: 32px;" width="32">&nbsp;</td>\n</tr>\n</tbody>\n</table>\n</body>\n</html>',
+            senderName: "il Nilo Ristoro",
+            replyTo: "omaressam.ee12@gmail.com",
+            branding21Email: "1",
+            attachment: "",
+            senderEmail: "noreply@jotform.com",
+            hideEmptyFields: "false",
+            sendOnEdit: "false",
+            sendOnSubmit: "",
+            enablePDFPassword: "false",
+            sendDate: "",
+            uploadAttachment: "",
+            usesNewPDF: "Yes",
+            recipientLimit: "0",
+            teamMembers: "",
+            cc: "",
+            bcc: "",
+          },
+        },
+      },
+      type: { hidden: true, value: "control_appointment" },
+      useReminderEmails: { hidden: true, value: "Yes" },
+      id: { toolbar: false, value: "10" },
+      qname: { toolbar: false, value: "q10_appointment" },
+      cdnconfig: { CDN: "https://cdn.jotfor.ms/" },
+      passive: false,
+      formProperties: {
+        products: false,
+        highlightLine: "Enabled",
+        coupons: false,
+        useStripeCoupons: false,
+        taxes: false,
+        comparePaymentForm: "",
+        paymentListSettings: false,
+        newPaymentUIForNewCreatedForms: "Yes",
+        formBackground: "#161616",
+        newAppointment: false,
+      },
+      formID: 230495937663569,
+      isPaymentForm: false,
+      isOpenedInPortal: false,
+      isCheckoutForm: false,
+      themeVersion: "v2",
+    });
+    JotForm.alterTexts(undefined);
+    /*INIT-END*/
+  });
+
+  JotForm.prepareCalculationsOnTheFly([
+    null,
+    {
+      name: "heading",
+      qid: "1",
+      text: "Make your own pizza ",
+      type: "control_head",
+    },
+    { name: "submit2", qid: "2", text: "Submit", type: "control_button" },
+    {
+      description: "",
+      name: "email",
+      qid: "3",
+      subLabel: "offers will be sent to you later on!!",
+      text: "Email",
+      type: "control_email",
+    },
+    null,
+    {
+      description: "",
+      name: "name",
+      qid: "5",
+      text: "Name",
+      type: "control_fullname",
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      description: "",
+      name: "appointment",
+      qid: "10",
+      text: "Appointment",
+      type: "control_appointment",
+    },
+    {
+      description: "",
+      name: "phoneNumber",
+      qid: "11",
+      text: "Phone Number",
+      type: "control_phone",
+    },
+  ]);
+  setTimeout(function () {
+    JotForm.paymentExtrasOnTheFly([
+      null,
+      {
+        name: "heading",
+        qid: "1",
+        text: "Make your own pizza ",
+        type: "control_head",
+      },
+      { name: "submit2", qid: "2", text: "Submit", type: "control_button" },
+      {
+        description: "",
+        name: "email",
+        qid: "3",
+        subLabel: "offers will be sent to you later on!!",
+        text: "Email",
+        type: "control_email",
+      },
+      null,
+      {
+        description: "",
+        name: "name",
+        qid: "5",
+        text: "Name",
+        type: "control_fullname",
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        description: "",
+        name: "appointment",
+        qid: "10",
+        text: "Appointment",
+        type: "control_appointment",
+      },
+      {
+        description: "",
+        name: "phoneNumber",
+        qid: "11",
+        text: "Phone Number",
+        type: "control_phone",
+      },
+    ]);
+  }, 20);
+</script>
+<style type="text/css">
+  @media print {
+    .form-section {
+      display: inline !important;
+    }
+    .form-pagebreak {
+      display: none !important;
+    }
+    .form-section-closed {
+      height: auto !important;
+    }
+    .page-section {
+      position: initial !important;
+    }
+  }
+</style>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="https://cdn01.jotfor.ms/themes/CSS/defaultV2.css?v=5fa5db2
+"
+/>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="https://cdn02.jotfor.ms/themes/CSS/5495488a700cc478508b4567.css?v=3.3.41870&themeRevisionID=63dd0b89393936a16387488f"
+/>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="https://cdn03.jotfor.ms/css/styles/payment/payment_styles.css?3.3.41870"
+/>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.41870"
+/>
+<style type="text/css" id="form-designer-style">
+  @import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+  /* Injected CSS Code */
+
+  /* Begining of advanced designer */
+  /* 17 - INPUT WIDTHS */
+  /*  20 - FORM PADDING */
+  .form-section {
+    padding: 0px 38px;
+  }
+  .form-textbox,
+  .form-textarea,
+  li[data-type="control_fileupload"] .qq-upload-button,
+  .signature-wrapper {
+    border-color: rgba(201, 97, 0, 0.77);
+  }
+  .form-textarea:hover,
+  .form-textbox:hover,
+  li[data-type="control_fileupload"] .qq-upload-button:hover,
+  .signature-wrapper:hover {
+    border-color: rgba(201, 97, 0, 0.5);
+    box-shadow: 0 0 0 2px rgba(201, 97, 0, 0.25);
+  }
+  .form-textarea:focus,
+  .form-textbox:focus,
+  li[data-type="control_fileupload"] .qq-upload-button:focus,
+  .signature-wrapper:focus {
+    border-color: #c96100;
+    box-shadow: 0 0 0 3px rgba(201, 97, 0, 0.25);
+  }
+  /* Heights */
+  /* 11 - LINE PADDING */
+  /* LABEL STYLE */
+  /* 12 - ROUNDED INPUTS */
+  .form-checkbox-item label,
+  .form-checkbox-item span,
+  .form-radio-item label,
+  .form-radio-item span {
+    color: #ffffff;
+  }
+  .form-radio-item,
+  .form-checkbox-item {
+    padding-bottom: 0px !important;
+  }
+  .form-radio-item:last-child,
+  .form-checkbox-item:last-child {
+    padding-bottom: 0;
+  }
+  .form-single-column .form-checkbox-item,
+  .form-single-column .form-radio-item {
+    width: 100%;
+  }
+  .form-checkbox-item .editor-container div,
+  .form-radio-item .editor-container div {
+    position: relative;
+  }
+  .form-checkbox-item .editor-container div:before,
+  .form-radio-item .editor-container div:before {
+    display: inline-block;
+    vertical-align: middle;
+    left: 0;
+    width: 20px;
+    height: 20px;
+  }
+  .form-checkbox-item input,
+  .form-radio-item input {
+    margin-top: 2px;
+  }
+  .form-checkbox:checked + label:before,
+  .form-checkbox:checked + span:before {
+    background-color: #894200;
+    border-color: #894200;
+  }
+  .form-radio:checked + label:before,
+  .form-radio:checked + span:before {
+    border-color: #894200;
+  }
+  .form-radio:checked + label:after,
+  .form-radio:checked + span:after {
+    background-color: #894200;
+  }
+  .form-checkbox:hover + label:before,
+  .form-checkbox:hover + span:before,
+  .form-radio:hover + label:before,
+  .form-radio:hover + span:before {
+    border-color: rgba(137, 66, 0, 0.5);
+    box-shadow: 0 0 0 2px rgba(137, 66, 0, 0.25);
+  }
+  .form-checkbox:focus + label:before,
+  .form-checkbox:focus + span:before,
+  .form-radio:focus + label:before,
+  .form-radio:focus + span:before {
+    border-color: #894200;
+    box-shadow: 0 0 0 3px rgba(137, 66, 0, 0.25);
+  }
+  .submit-button {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: inherit;
+  }
+  .submit-button {
+    min-width: 180px;
+  }
+  .form-all .form-pagebreak-back,
+  .form-all .form-pagebreak-next {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .form-all .form-pagebreak-back,
+  .form-all .form-pagebreak-next {
+    min-width: 128px;
+  }
+  li[data-type="control_image"] div {
+    text-align: left;
+  }
+  li[data-type="control_image"] img {
+    border: none;
+    border-width: 0px !important;
+    border-style: solid !important;
+    border-color: false !important;
+  }
+  .supernova {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+    background-attachment: fixed;
+    background-size: auto;
+    background-size: cover;
+  }
+  .supernova {
+    background-image: none;
+  }
+  #stage {
+    background-image: none;
+  }
+  /* | */
+  .form-all {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: cover;
+  }
+  .form-header-group {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+  }
+  .header-large h1.form-header {
+    font-size: 2em;
+  }
+  .header-large h2.form-header {
+    font-size: 1.5em;
+  }
+  .header-large h3.form-header {
+    font-size: 1.17em;
+  }
+  .header-large h1 + .form-subHeader {
+    font-size: 1em;
+  }
+  .header-large h2 + .form-subHeader {
+    font-size: 0.875em;
+  }
+  .header-large h3 + .form-subHeader {
+    font-size: 0.75em;
+  }
+  .header-default h1.form-header {
+    font-size: 2em;
+  }
+  .header-default h2.form-header {
+    font-size: 1.5em;
+  }
+  .header-default h3.form-header {
+    font-size: 1.17em;
+  }
+  .header-default h1 + .form-subHeader {
+    font-size: 1em;
+  }
+  .header-default h2 + .form-subHeader {
+    font-size: 0.875em;
+  }
+  .header-default h3 + .form-subHeader {
+    font-size: 0.75em;
+  }
+  .header-small h1.form-header {
+    font-size: 2em;
+  }
+  .header-small h2.form-header {
+    font-size: 1.5em;
+  }
+  .header-small h3.form-header {
+    font-size: 1.17em;
+  }
+  .header-small h1 + .form-subHeader {
+    font-size: 1em;
+  }
+  .header-small h2 + .form-subHeader {
+    font-size: 0.875em;
+  }
+  .header-small h3 + .form-subHeader {
+    font-size: 0.75em;
+  }
+  .form-header-group {
+    text-align: left;
+  }
+  .form-header-group {
+    font-family: "false", sans-serif;
+  }
+  div.form-header-group.header-large,
+  div.form-header-group.hasImage {
+    margin: 0px -38px;
+  }
+  div.form-header-group.header-large,
+  div.form-header-group.hasImage {
+    padding: 40px 52px;
+  }
+  .form-header-group .form-header,
+  .form-header-group .form-subHeader {
+    color: #ffffff;
+  }
+  .form-collapse-table {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 1px 0 rgba(0, 0, 0, 0.2);
+    color: #ff913e;
+  }
+  .form-collapse-table .form-collapse-mid {
+    text-shadow: none;
+  }
+  .form-line-error {
+    overflow: hidden;
+    -webkit-transition-property: none;
+    -moz-transition-property: none;
+    -ms-transition-property: none;
+    -o-transition-property: none;
+    transition-property: none;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -ms-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background-color: #642733;
+  }
+  .form-line-error .form-error-message {
+    background-color: #f23a3c;
+    clear: both;
+    float: none;
+  }
+  .form-line-error .form-error-message .form-error-arrow {
+    border-bottom-color: #f23a3c;
+  }
+  .form-line-error input:not(#coupon-input),
+  .form-line-error textarea,
+  .form-line-error .form-validation-error {
+    border: 1px solid #f23a3c;
+    box-shadow: 0 0 3px #f23a3c;
+  }
+  .form-label-top,
+  .form-label-left,
+  .form-label-right,
+  .form-html {
+    color: #ffffff;
+  }
+  .form-line-error {
+    overflow: hidden;
+    -webkit-transition-property: none;
+    -moz-transition-property: none;
+    -ms-transition-property: none;
+    -o-transition-property: none;
+    transition-property: none;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -ms-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background-color: #642733;
+  }
+  .form-header-group .form-header,
+  .form-header-group .form-subHeader {
+    color: #ffffff;
+  }
+  .form-line-active {
+    background-color: #ffdfc7;
+  }
+  /* 29 - FORM COLUMNS */
+  /*PREFERENCES STYLE*/
+  /*  1 - Preferences style */
+  /*  1 - FONT FAMILY */
+  .form-all {
+    font-family: "Inter", sans-serif;
+  }
+  /* 2 - FORM WIDTH */
+  .form-all {
+    max-width: 752px;
+  }
+  /* 5 - FONT SIZE */
+  .form-all {
+    font-size: 16px;
+  }
+  /* 5 - input bg color */
+  .form-textbox,
+  .form-textarea,
+  .form-radio-other-input,
+  .form-checkbox-other-input,
+  .form-captcha input,
+  .form-spinner input {
+    background-color: #ffffff;
+  }
+  /* 10 - LINE SPACING */
+  .form-line {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .supernova .form-all,
+  .form-all {
+    background-color: #161616;
+  }
+  .supernova {
+    background-color: #161616;
+  }
+  .supernova body {
+    background-color: transparent;
+  }
+  .form-all,
+  .form-label-top,
+  .form-label-left,
+  .form-label-right,
+  .form-html,
+  .form-checkbox-item label,
+  .form-radio-item label,
+  span.FITB .qb-checkbox-label,
+  span.FITB .qb-radiobox-label,
+  span.FITB .form-radio label,
+  span.FITB .form-checkbox label,
+  [data-blotid][data-type="checkbox"] [data-labelid],
+  [data-blotid][data-type="radiobox"] [data-labelid],
+  span.FITB-inptCont[data-type="checkbox"] label,
+  span.FITB-inptCont[data-type="radiobox"] label,
+  .form-sub-label {
+    color: #ffffff;
+  }
+  .form-all {
+    margin: 72px auto;
+  }
+  .form-all:before {
+    content: none;
+  }
+  /*PREFERENCES STYLE*/
+
+  /*__INSPECT_SEPERATOR__*/
+
+  .form-header {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+  }
+
+  .form-subHeader {
+    color: #c1a183;
+  }
+
+  /* Injected CSS Code */
+</style>
+
+<form
+  class="jotform-form"
+  action="https://submit.jotform.com/submit/230495937663569"
+  method="post"
+  name="form_230495937663569"
+  id="230495937663569"
+  accept-charset="utf-8"
+  autocomplete="on"
+>
+  <input type="hidden" name="formID" value="230495937663569" /><input
+    type="hidden"
+    id="JWTContainer"
+    value=""
+  /><input type="hidden" id="cardinalOrderNumber" value="" />
+  <div role="main" class="form-all">
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group header-large">
+          <div class="header-text httac htvam">
+            <h1 id="header_1" class="form-header" data-component="header">
+              Make your own pizza
+            </h1>
+            <div id="subHeader_1" class="form-subHeader" style="color: #c1a183">
+              From 11AM till 4:45P, lasting 15-20 min
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        class="form-line jf-required"
+        data-type="control_fullname"
+        id="id_5"
+        data-compound-hint=","
+      >
+        <label
+          class="form-label form-label-top form-label-auto"
+          id="label_5"
+          for="first_5"
+        >
+          Name<span class="form-required">*</span>
+        </label>
+        <div id="cid_5" class="form-input-wide jf-required" data-layout="full">
+          <div data-wrapper-react="true">
+            <span
+              class="form-sub-label-container"
+              style="vertical-align: top"
+              data-input-type="first"
+              ><input
+                type="text"
+                id="first_5"
+                name="q5_name[first]"
+                class="form-textbox validate[required]"
+                data-defaultvalue=""
+                autocomplete="section-input_5 given-name"
+                size="10"
+                value=""
+                data-component="first"
+                aria-labelledby="label_5 sublabel_5_first"
+                required=""
+              /><label
+                class="form-sub-label"
+                for="first_5"
+                id="sublabel_5_first"
+                style="min-height: 13px"
+                aria-hidden="false"
+                >First Name</label
+              ></span
+            ><span
+              class="form-sub-label-container"
+              style="vertical-align: top"
+              data-input-type="last"
+              ><input
+                type="text"
+                id="last_5"
+                name="q5_name[last]"
+                class="form-textbox validate[required]"
+                data-defaultvalue=""
+                autocomplete="section-input_5 family-name"
+                size="15"
+                value=""
+                data-component="last"
+                aria-labelledby="label_5 sublabel_5_last"
+                required=""
+              /><label
+                class="form-sub-label"
+                for="last_5"
+                id="sublabel_5_last"
+                style="min-height: 13px"
+                aria-hidden="false"
+                >Last Name</label
+              ></span
+            >
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_email" id="id_3">
+        <label
+          class="form-label form-label-top form-label-auto"
+          id="label_3"
+          for="input_3"
+        >
+          Email<span class="form-required">*</span>
+        </label>
+        <div id="cid_3" class="form-input-wide jf-required" data-layout="half">
+          <span class="form-sub-label-container" style="vertical-align: top"
+            ><input
+              type="email"
+              id="input_3"
+              name="q3_email"
+              class="form-textbox validate[required, Email]"
+              data-defaultvalue=""
+              style="width: 310px"
+              size="310"
+              value=""
+              placeholder="example@example.com"
+              data-component="email"
+              aria-labelledby="label_3 sublabel_input_3"
+              required=""
+            /><label
+              class="form-sub-label"
+              for="input_3"
+              id="sublabel_input_3"
+              style="min-height: 13px"
+              aria-hidden="false"
+              >offers will be sent to you later on!!</label
+            ></span
+          >
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_phone" id="id_11">
+        <label
+          class="form-label form-label-top form-label-auto"
+          id="label_11"
+          for="input_11_full"
+        >
+          Phone Number<span class="form-required">*</span>
+        </label>
+        <div id="cid_11" class="form-input-wide jf-required" data-layout="half">
+          <span class="form-sub-label-container" style="vertical-align: top"
+            ><input
+              type="tel"
+              id="input_11_full"
+              name="q11_phoneNumber[full]"
+              data-type="mask-number"
+              class="mask-phone-number form-textbox validate[required, Fill Mask]"
+              data-defaultvalue=""
+              autocomplete="section-input_11 tel"
+              style="width: 310px"
+              data-masked="true"
+              value=""
+              placeholder="00000000000"
+              data-component="phone"
+              aria-labelledby="label_11 sublabel_11_masked"
+              required=""
+            /><label
+              class="form-sub-label"
+              for="input_11_full"
+              id="sublabel_11_masked"
+              style="min-height: 13px"
+              aria-hidden="false"
+              >Please enter a valid phone number.</label
+            ></span
+          >
+        </div>
+      </li>
+      <li class="form-line" data-type="control_appointment" id="id_10">
+        <label class="form-label form-label-top" id="label_10" for="input_10">
+          Appointment
+        </label>
+        <div id="cid_10" class="form-input-wide" data-layout="full">
+          <div id="input_10" class="appointmentFieldWrapper jfQuestion-fields">
+            <input
+              class="appointmentFieldInput"
+              name="q10_appointment[implementation]"
+              value="new"
+              id="input_10implementation"
+            /><input
+              class="appointmentFieldInput"
+              name="q10_appointment[date]"
+              id="input_10_date"
+              data-timeformat="AM/PM"
+            /><input
+              class="appointmentFieldInput"
+              name="q10_appointment[duration]"
+              value="15"
+              id="input_10_duration"
+            /><input
+              class="appointmentFieldInput"
+              name="q10_appointment[timezone]"
+              value="Africa/Cairo (GMT+02:00)"
+              id="input_10_timezone"
+            />
+            <div class="appointmentField"></div>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_2">
+        <div id="cid_2" class="form-input-wide" data-layout="full">
+          <div
+            data-align="auto"
+            class="form-buttons-wrapper form-buttons-auto jsTest-button-wrapperField"
+          >
+            <button
+              id="input_2"
+              type="submit"
+              class="form-submit-button form-submit-button-orange-500 submit-button jf-form-buttons jsTest-submitField"
+              data-component="button"
+              data-content=""
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </li>
+      <li style="display: none">
+        Should be Empty: <input type="text" name="website" value="" />
+      </li>
+    </ul>
+  </div>
+  <script>
+    JotForm.showJotFormPowered = "new_footer";
+  </script>
+  <script>
+    JotForm.poweredByText = "Powered by Jotform";
+  </script>
+  <input
+    type="hidden"
+    class="simple_spc"
+    id="simple_spc"
+    name="simple_spc"
+    value="230495937663569"
+  />
+  <script type="text/javascript">
+    var all_spc = document.querySelectorAll(
+      "form[id='230495937663569'] .si" + "mple" + "_spc"
+    );
+    for (var i = 0; i < all_spc.length; i++) {
+      all_spc[i].value = "230495937663569-230495937663569";
+    }
+  </script>
+  <div class="formFooter-heightMask"></div>
+  <div class="formFooter f6 branding21">
+    <div class="formFooter-wrapper formFooter-leftSide">
+      <a
+        href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=230495937663569&utm_content=jotform_logo&utm_campaign=powered_by_jotform_le"
+        target="_blank"
+        class="formFooter-logoLink"
+        ><img
+          class="formFooter-logo"
+          src="https://cdn.jotfor.ms/assets/img/logo2021/jotform-logo-white.svg"
+          alt="Jotform Logo"
+          style="height: 44px"
+      /></a>
+    </div>
+    <div class="formFooter-wrapper formFooter-rightSide">
+      <span class="formFooter-text"
+        >Now create your own Jotform - It's free!</span
+      ><a
+        class="formFooter-button"
+        href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=230495937663569&utm_content=jotform_button&utm_campaign=powered_by_jotform_le"
+        target="_blank"
+        >Create your own Jotform</a
+      >
+    </div>
+  </div>
+</form>
+<script type="text/javascript">
+  JotForm.ownerView = true;
+</script>
+<script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.41870"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.41870"></script>

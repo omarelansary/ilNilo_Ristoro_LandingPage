@@ -22,7 +22,7 @@ span {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
-  background-size:100% 100%;
+  background-size: 100% 100%;
 }
 .sloganText {
   color: #d2d2d2;
@@ -49,32 +49,33 @@ span {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
   color: #d2d2d2;
+  font-weight: 600;
 }
-.myIcon{
-  color: #FFFFFF;
+.myIcon {
+  color: #ffffff;
   size: 50%;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
-.moreInfoDiv{
+.moreInfoDiv {
   background-color: #161616;
-  padding-top: 15%;
-  padding-bottom: 5%;
   text-align: center;
 }
-.innerDiv{
+.innerDiv {
   padding-top: 5%;
-  padding-bottom: 5%
+  padding-bottom: 5%;
 }
-hr{
+hr {
   margin-left: 6%;
   margin-right: 6%;
   height: 2.3px;
   text-align: center;
   align-items: center;
-  color: #C8A788;
+  color: #c8a788;
   background-color: #c8a788;
   position: relative;
 }
-.ilNiloImg{
-  width: 180px;
+.ilNiloImg {
+  width: 160px;
   height: auto;
 }
